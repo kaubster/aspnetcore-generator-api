@@ -12,8 +12,12 @@ RUN dotnet restore tests/tests.csproj
 # RUN ls -alR
 # > docker build .
 # OR
+# Note: ls -alR requires Git Bash (i.e. MINGW) or Linux subsystem for windows
 # > docker build -t testing .
 # > docker run --rm testing ls -alR
+# > docker run --rm -it -p 8080:80 testing
+
+# pluralsight-pipeline-start-Working-Through-Course
 
 # copy src
 COPY . .
@@ -22,7 +26,7 @@ COPY . .
 #ENV TEAMCITY_PROJECT_NAME=fake
 RUN dotnet test tests/tests.csproj
 
-# publish
+# publish - note: will not occur unless test passes
 RUN dotnet publish api/api.csproj -o /publish
 
 # Runtime stage
