@@ -14,7 +14,7 @@ namespace tests
 
             var generated = range.Of(() => "");
 
-            Assert.Equal(5, generated.Count());
+            Assert.Equal(6, generated.Count());
         }
 
         [Fact]
