@@ -19,7 +19,7 @@ docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-ru
 
 
 
-docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register  --non-interactive  --executor "docker"  --docker-image alpine:latest  --url "http://localhost:8929/"  --registration-token "wZaUCfvS92uy2Vzxy2Vj"  --description "docker-runner"  --tag-list "docker,aws"  --run-untagged="true"  --locked="false"  --access-level="not_protected"
+docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register  --non-interactive  --executor "docker"  --docker-image alpine:latest  --url "http://localhost:8929/"  --registration-token "NnFewzKoE-VukY6b5Tac"  --description "docker-runner"  --tag-list "docker,aws"  --run-untagged="true"  --locked="false"  --access-level="not_protected"
 
 
 docker run --rm -t -i -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register

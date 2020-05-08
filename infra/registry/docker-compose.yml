@@ -2,7 +2,7 @@
 
   services:
     my-registry:
-      restart: unless-stopped #always none on-failure unless-stopped
+      #restart: unless-stopped #always none on-failure unless-stopped
       image: registry:2
       ports:
         - 55000:5000
