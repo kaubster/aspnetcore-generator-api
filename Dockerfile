@@ -27,7 +27,7 @@ COPY . .
 # Set the flag to tell TeamCity that these are unit tests:
 ENV TEAMCITY_PROJECT_NAME = ${TEAMCITY_PROJECT_NAME}
 
-RUN dotnet test tests/tests.csproj --verbosity normal
+RUN dotnet test tests/tests.csproj
 
 # publish - note: will not occur unless test passes
 RUN dotnet publish api/api.csproj -o /publish
@@ -35,7 +35,7 @@ RUN dotnet publish api/api.csproj -o /publish
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 COPY --from=build-env /publish /publish
-WORKDIR /publish
-ENTRYPOINT ["dotnet", "api.dll"]
+WORKDIR /publish	
+ENTRYPOINT ["dotnet", "test", "--verbosity=normal"]
 
 # docker run --rm -it -p 8080:80 testing
