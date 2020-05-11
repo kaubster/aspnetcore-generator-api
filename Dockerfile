@@ -22,12 +22,7 @@ RUN dotnet restore tests/tests.csproj
 # copy src
 COPY . .
 
-# test
-# ENV TEAMCITY_PROJECT_NAME=fake
-# Set the flag to tell TeamCity that these are unit tests:
-ENV TEAMCITY_PROJECT_NAME = ${TEAMCITY_PROJECT_NAME}
-
-RUN dotnet test tests/tests.csproj
+RUN dotnet test --verbosity=normal tests/tests.csproj
 
 # publish - note: will not occur unless test passes
 RUN dotnet publish api/api.csproj -o /publish
@@ -35,7 +30,13 @@ RUN dotnet publish api/api.csproj -o /publish
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 COPY --from=build-env /publish /publish
-WORKDIR /publish	
+WORKDIR /publish
+
+# test
+# ENV TEAMCITY_PROJECT_NAME=fake
+# Set the flag to tell TeamCity that these are unit tests:
+ENV TEAMCITY_PROJECT_NAME = ${TEAMCITY_PROJECT_NAME}
+
 ENTRYPOINT ["dotnet", "test", "--verbosity=normal"]
 
 # docker run --rm -it -p 8080:80 testing

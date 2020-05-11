@@ -17,5 +17,4 @@ services:
     #image: localhost:55000/gen:integration-10
     build: .
     environment:
-      # no value, so pulls from env i.e. TEAMCITY_PROJECT_NAME=${TEAMCITY_PROJECT_NAME}
       - TEAMCITY_PROJECT_NAME
