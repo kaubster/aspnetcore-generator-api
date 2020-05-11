@@ -10,11 +10,11 @@ namespace tests
         [Fact]
         public void CountShouldControlNumberOfResults()
         {
-            var range = new Range { Count = 6 };
+            var range = new Range { Count = 7 };
 
             var generated = range.Of(() => "");
 
-            Assert.Equal(6, generated.Count());
+            Assert.Equal(7, generated.Count());
         }
 
         [Fact]
