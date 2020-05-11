@@ -27,7 +27,7 @@ COPY . .
 # Set the flag to tell TeamCity that these are unit tests:
 ENV TEAMCITY_PROJECT_NAME = ${TEAMCITY_PROJECT_NAME}
 
-RUN dotnet test tests/tests.csproj
+RUN dotnet test tests/tests.csproj --verbosity normal
 
 # publish - note: will not occur unless test passes
 RUN dotnet publish api/api.csproj -o /publish
