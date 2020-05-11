@@ -35,7 +35,7 @@ WORKDIR /publish
 # test
 # ENV TEAMCITY_PROJECT_NAME=fake
 # Set the flag to tell TeamCity that these are unit tests:
-ENV TEAMCITY_PROJECT_NAME = ${TEAMCITY_PROJECT_NAME}
+#ENV TEAMCITY_PROJECT_NAME = ${TEAMCITY_PROJECT_NAME}
 
 ENTRYPOINT ["dotnet", "test", "--verbosity=normal"]
 
