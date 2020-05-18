@@ -1,0 +1,26 @@
+2020-05-14_18:22:17.55257 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+2020-05-14_18:22:17.55308 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+2020-05-14_18:22:17.55330 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+2020-05-14_18:22:17.55400 Permissions 0755 for '/etc/gitlab/ssh_host_rsa_key' are too open.
+2020-05-14_18:22:17.55439 It is required that your private key files are NOT accessible by others.
+2020-05-14_18:22:17.55492 This private key will be ignored.
+2020-05-14_18:22:17.55536 key_load_private: bad permissions
+2020-05-14_18:22:17.55676 Could not load host key: /etc/gitlab/ssh_host_rsa_key
+2020-05-14_18:22:17.55736 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+2020-05-14_18:22:17.55807 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+2020-05-14_18:22:17.55848 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+2020-05-14_18:22:17.55887 Permissions 0755 for '/etc/gitlab/ssh_host_ecdsa_key' are too open.
+2020-05-14_18:22:17.55918 It is required that your private key files are NOT accessible by others.
+2020-05-14_18:22:17.55938 This private key will be ignored.
+2020-05-14_18:22:17.55963 key_load_private: bad permissions
+2020-05-14_18:22:17.56046 Could not load host key: /etc/gitlab/ssh_host_ecdsa_key
+2020-05-14_18:22:17.56129 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+2020-05-14_18:22:17.56171 @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+2020-05-14_18:22:17.56198 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+2020-05-14_18:22:17.56223 Permissions 0755 for '/etc/gitlab/ssh_host_ed25519_key' are too open.
+2020-05-14_18:22:17.56254 It is required that your private key files are NOT accessible by others.
+2020-05-14_18:22:17.56282 This private key will be ignored.
+2020-05-14_18:22:17.56368 key_load_private: bad permissions
+2020-05-14_18:22:17.56638 Could not load host key: /etc/gitlab/ssh_host_ed25519_key
+2020-05-14_18:22:17.56685 Server listening on 0.0.0.0 port 22.
+2020-05-14_18:22:17.56777 Server listening on :: port 22.

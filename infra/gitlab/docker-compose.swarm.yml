@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  gitlab:
+      image: gitlab/gitlab-ce:latest
+      #restart: always
+      hostname: 'gitlab.example.com'
+      environment:
+          GITLAB_OMNIBUS_CONFIG: |
+            external_url 'http://gitlab.example.com:8929'
+            gitlab_rails['gitlab_shell_ssh_port'] = 2224
+      ports:
+          - '8929:8929'
+          - '2224:22'
+      volumes: 
+          - gitlab-server-config:/etc/gitlab
+          - gitlab-server-logs:/var/log/gitlab
+          - gitlab-server-data:/var/opt/gitlab
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    deploy:
+      mode: replicated
+      replicas: 4
+configs:
+  gitlab:
+    file: ./gitlab.rb
+secrets:
+  gitlab_root_password:
+    file: ./secrets/gitlab_root_password.txt
+    
+volumes:
+  gitlab-server-config:
+  gitlab-server-logs:
+  gitlab-server-data:
+  
+  
+

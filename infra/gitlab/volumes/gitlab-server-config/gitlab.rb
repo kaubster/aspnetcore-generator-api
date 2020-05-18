@@ -1,16 +1,3 @@
-external_url 'http://gitlab.example.com:8929'
-gitlab_rails['initial_root_password'] = File.read('/secrets/gitlab_root_password')
-gitlab_rails['gitlab_shell_ssh_port'] = 2224
-
-registry_external_url 'http://localhost:55000'
-registry['enable'] = true
-unicorn['socket'] = '/opt/gitlab/var/unicorn/gitlab.socket'
-
-
-
-registry['enable'] = true
-registry['registry_http_addr'] = "localhost:55000"
-
 ## GitLab configuration settings
 ##! This file is generated during initial installation and **is not** modified
 ##! during upgrades.
@@ -39,7 +26,7 @@ registry['registry_http_addr'] = "localhost:55000"
 ##! On AWS EC2 instances, we also attempt to fetch the public hostname/IP
 ##! address from AWS. For more details, see:
 ##! https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html
-external_url 'GENERATED_EXTERNAL_URL'
+# external_url 'GENERATED_EXTERNAL_URL'
 
 ## Roles for multi-instance GitLab
 ##! The default is to have no roles enabled, which results in GitLab running as an all-in-one instance.
@@ -623,6 +610,8 @@ external_url 'GENERATED_EXTERNAL_URL'
 # gitlab_rails['redis_queues_sentinels'] = nil
 # gitlab_rails['redis_shared_state_instance'] = nil
 # gitlab_rails['redis_shared_sentinels'] = nil
+# gitlab_rails['redis_actioncable_instance'] = nil
+# gitlab_rails['redis_actioncable_sentinels'] = nil
 
 ### GitLab email server settings
 ###! Docs: https://docs.gitlab.com/omnibus/settings/smtp.html
@@ -1866,9 +1855,11 @@ external_url 'GENERATED_EXTERNAL_URL'
 # praefect['enable'] = false
 # praefect['virtual_storage_name'] = "praefect"
 # praefect['failover_enabled'] = false
+# praefect['failover_election_strategy'] = 'local'
 # praefect['auth_token'] = ""
 # praefect['auth_transitioning'] = false
 # praefect['listen_addr'] = "localhost:2305"
+# praefect['postgres_queue_enabled'] = false
 # praefect['prometheus_listen_addr'] = "localhost:9652"
 # praefect['prometheus_grpc_latency_buckets'] = "[0.001, 0.005, 0.025, 0.1, 0.5, 1.0, 10.0, 30.0, 60.0, 300.0, 1500.0]"
 # praefect['logging_level'] = "warn"
@@ -2307,7 +2298,7 @@ external_url 'GENERATED_EXTERNAL_URL'
 # repmgr['node_number'] = nil
 # repmgr['port'] = 5432
 # repmgr['trust_auth_cidr_addresses'] = []
-# repmgr['user'] = 'gitlab_repmgr'
+# repmgr['username'] = 'gitlab_repmgr'
 # repmgr['sslmode'] = 'prefer'
 # repmgr['sslcompression'] = 0
 # repmgr['failover'] = 'automatic'
@@ -2352,7 +2343,7 @@ external_url 'GENERATED_EXTERNAL_URL'
 ################################################################################
 # consul['enable'] = false
 # consul['dir'] = '/var/opt/gitlab/consul'
-# consul['user'] = 'gitlab-consul'
+# consul['username'] = 'gitlab-consul'
 # consul['group'] = 'gitlab-consul'
 # consul['config_file'] = '/var/opt/gitlab/consul/config.json'
 # consul['config_dir'] = '/var/opt/gitlab/consul/config.d'
