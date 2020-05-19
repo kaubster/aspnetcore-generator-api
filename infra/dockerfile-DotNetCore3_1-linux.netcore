@@ -1,5 +1,6 @@
 # PowerShell : Get-Content dockerfile-DotNetCore3_1-linux.netcore | docker build -t agent-dnc:v3.1 -
 # DOS : docker build -t agent-dnc:v3.1 - < dockerfile-DotNetCore3_1-linux.netcore
+#     : docker run agent-dnc:v3.1
 #     : docker exec -it --user jenkins nervous_mclaren /bin/bash
 
 FROM jenkins/jenkins:lts
