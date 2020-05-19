@@ -1,6 +1,6 @@
 def dockerImage;
 
-node('docker'){
+node('DOCKER'){
 	stage('SCM'){
 		checkout([$class: 'GitSCM', branches: [[name: '*/follow-course']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/kaubster/aspnetcore-generator-api']]]);
 	}
