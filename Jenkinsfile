@@ -1,6 +1,7 @@
-pipeline {
-   agent any
-
+node('DOTNETCORE_2_0'){
+	stage('SCM'){
+		checkout([$class: 'GitSCM', branches: [[name: '*/follow-course']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/kaubster/aspnetcore-generator-api']]])
+	}
    stages {
       stage('Verify Branch') {
          steps {
