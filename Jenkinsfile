@@ -1,6 +1,6 @@
 node('DOTNETCORE_2_0') {  
-    stage('Checkout') { 
-        checkout scm
+    stage('SCM') { 
+       checkout([$class: 'GitSCM', branches: [[name: '*/follow-course']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'kaubster', url: 'https://github.com/kaubster/aspnetcore-generator-api.git']]])
     }
     stage('Build & UnitTest') { 
         sh label: '', script: 'docker images -a'
