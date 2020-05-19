@@ -1,7 +1,9 @@
-# PowerShell : Get-Content dockerfile-DotNetCore3_1-linux.netcore | docker build -t agent-dnc:v3.1 -
-# DOS : docker build -t agent-dnc:v3.1 - < dockerfile-DotNetCore3_1-linux.netcore
-#     : docker run agent-dnc:v3.1
-#     : docker exec -it --user jenkins nervous_mclaren /bin/bash
+# PowerShell : Get-Content DotNetCore3_1-linux.Dockerfile | docker build -t agents/dotnetcore:v3.1 -
+# DOS : docker build -t agents/dotnetcore:v3.1 - < DotNetCore3_1-linux.Dockerfile
+#     : docker tag agents/dotnetcore:v3.1 localhost:55000/agents/dotnetcore:v3.1
+#     : docker push localhost:55000/agents/dotnetcore:v3.1
+#     : docker run agents/dotnetcore:v3.1
+#     : docker exec -it --user jenkins REPLACE_WITH_DOCKER_PS_NAME /bin/bash
 
 FROM jenkins/jenkins:lts
  # Switch to root to install .NET Core SDK

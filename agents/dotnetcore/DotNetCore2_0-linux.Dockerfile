@@ -1,5 +1,9 @@
-# PowerShell : Get-Content dockerfile-DotNetCore2_0-linux.netcore | docker build -t agent-dnc:v2.0 -
-# DOS : docker build -t agent-dnc:v2.0 - < dockerfile-DotNetCore2_0-linux.netcore
+# PowerShell : Get-Content DotNetCore3_1-linux.Dockerfile | docker build -t agents/dotnetcore:v2.0 -
+# DOS : docker build -t agents/dotnetcore:v2.0 - < DotNetCore2_0-linux.Dockerfile
+#     : docker tag agents/dotnetcore:v2.0 localhost:55000/agents/dotnetcore:v2.0
+#     : docker push localhost:55000/agents/dotnetcore:v2.0
+#     : docker run agents/dotnetcore:v2.0
+#     : docker exec -it --user jenkins REPLACE_WITH_DOCKER_PS_NAME /bin/bash
 
 FROM jenkins/jenkins:lts
  # Switch to root to install .NET Core SDK

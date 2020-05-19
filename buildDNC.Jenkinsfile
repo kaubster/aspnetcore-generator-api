@@ -6,7 +6,7 @@ node('docker'){
 	}
 	stage('build'){
 		//dockerImage = docker.build('localhost:55000/agents/jenkinsdocker:latest', './dotnetcore');
-		return docker.build("localhost:55000/agents/agent-dnc:v$BUILD_NUMBER", "-f ./agents/dotnetcore/dockerfile-DotNetCore2_0-linux.netcore")
+		return docker.build("localhost:55000/agents/gen/agent-dnc:v$BUILD_NUMBER", "-f ./agents/dotnetcore/DotNetCore2_0-linux.Dockerfile")
 	}
 	stage('push'){
 		docker.withRegistry('http://localhost:55000/v2/', ''){
