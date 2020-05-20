@@ -4,13 +4,13 @@ node('DOTNETCORE20'){
 	}
 	stage('Build'){
 		try{
-		sh 'dotnet build ./api/api'
+		sh 'dotnet build ./api/api.csproj'
 		}finally{
 		 
 		}
 	}
 	stage('Test'){
-		echo 'Execute unit tests'
+		sh 'dotnet test ./tests/tests.csproj'
 	}
 	stage('Package'){
 		echo 'Zip it up'

@@ -5,7 +5,7 @@ node('DOCKER'){
 		checkout([$class: 'GitSCM', branches: [[name: '*/follow-course']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/kaubster/aspnetcore-generator-api']]]);
 	}
 	stage('build'){
-		dockerImage = docker.build('localhost:55000/agents/gen/agent-dnc:v$BUILD_NUMBER', './agents/DotNetCore2_0');
+		dockerImage = docker.build('localhost:55000/agents/gen/agent-dnc/v3.1:v$BUILD_NUMBER', './agents/DotNetCore3_1');
 	}
 	stage('push'){
 		docker.withRegistry('http://localhost:55000/v2/', ''){
