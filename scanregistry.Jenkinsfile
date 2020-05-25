@@ -7,15 +7,15 @@ pipeline {
     stages {
         stage('Verify Branch') {
             steps {
-                sh 'echo "$registry/jenkins_gen:ci-$BUILD_NUMBER"'
+                sh 'echo "$registry $BUILD_NUMBER"'
             }
         }
-		Stage(‘Run Trivy’) {
+		stage('Run Trivy') {
 			steps {
-				sh(script: '''
+				sh '''
 					trivy localhost:55000/agents/dotnetcore:v3.1
 				'''
-			}
+            }
 		}
 	}
 }
