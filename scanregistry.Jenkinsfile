@@ -13,7 +13,7 @@ pipeline {
 		stage('Run Trivy') {
 			steps {
 				sh '''
-					trivy localhost:55000/agents/dotnetcore:v3.1
+					trivy localhost:55000/gen:ci-94
 				'''
             }
 		}
