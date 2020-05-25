@@ -3,8 +3,8 @@ version: "3.1"
 services:
   generator:
     # Note: "-10" means default to 10
-    image: localhost:55000/gen:ci-${GENERATOR_BUILD_NUMBER-10}
-    #image: localhost:55000/gen:man_ci-01
+    image: localhost:55000/gen:ci-9
+    #image: localhost:55000/gen:ci-95
     #ports:
     # - "8080:80"
   mail:
@@ -15,7 +15,7 @@ services:
     depends_on:
       - generator
     # Note: "-10" means default to 10
-    image: localhost:55000/gen:integration-${BUILD_NUMBER-10}
+    image: localhost:55000/gen:integration-9
     #image: localhost:55000/gen:integration-10
     build: .
     environment:

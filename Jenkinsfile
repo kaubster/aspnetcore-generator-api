@@ -3,11 +3,14 @@ pipeline {
     //agent { docker 'localhost:55000/agents/jenkinsdocker:latest' }
     environment { 
         registry = 'localhost:55000'
+		GENERATOR_BUILD_NUMBER = "$BUILD_NUMBER"
     }
     stages {
         stage('Verify Branch') {
             steps {
-                sh 'echo "$registry/jenkins_gen:ci-$BUILD_NUMBER"'
+                sh 'echo "Docker Images"'
+                sh 'echo "Build: $registry/gen:ci-$BUILD_NUMBER"'
+                sh 'echo "Integration: $registry/gen:ci-$GENERATOR_BUILD_NUMBER"'
             }
         }
     	stage('SCM'){
@@ -19,22 +22,17 @@ pipeline {
             steps {
                 // image="localhost:55000/gen:ci-%build.number%"
                 // docker build -t $image --no-cache .
-                sh 'docker build -t $registry/jenkins_gen:ci-$BUILD_NUMBER --no-cache .'
+                sh 'docker build -t $registry/gen:ci-$BUILD_NUMBER --no-cache .'
             }
         }
     	stage('push'){
             steps {
-                sh 'docker push $registry/jenkins_gen:ci-$BUILD_NUMBER'
+                sh 'docker push $registry/gen:ci-$BUILD_NUMBER'
             }
     	}
         stage('List Docker Images') {
             steps {
                 sh 'docker images -a'
-            }
-        }
-        stage('Cleaning up') {
-            steps {
-                sh 'docker rmi $registry/jenkins_gen:ci-$BUILD_NUMBER'
             }
         }
     	stage('Integration Tests'){
@@ -53,5 +51,11 @@ pipeline {
                 docker-compose down'''
             }
     	}
+        stage('Cleaning up') {
+            steps {
+                sh 'docker rmi $registry/gen:ci-$BUILD_NUMBER'
+                sh 'docker rmi $registry/gen:Integration-$BUILD_NUMBER'
+            }
+        }
     }
 }
