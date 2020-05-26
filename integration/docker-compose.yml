@@ -17,7 +17,7 @@ services:
       - generator
     # Note: "-10" means default to 10
     image: localhost:55000/gen:integration-${BUILD_NUMBER-10}
-    #image: localhost:55000/gen:integration-10
+    #image: localhost:55000/gen:integration-10 
     build: .
     environment:
       - TEAMCITY_PROJECT_NAME
