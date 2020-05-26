@@ -37,11 +37,6 @@ pipeline {
         }
     	stage('Integration Tests'){
             steps {
-                // docker-compose up \
-                // --force-recreate \
-                // --abort-on-container-exit \
-                // --build
-                // docker-compose down
                 sh '''
                 cd integration/
                 docker-compose up \\
