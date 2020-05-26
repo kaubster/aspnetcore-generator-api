@@ -18,7 +18,7 @@ RUN apt-get update -qq && apt-get install -qqy \
     
 RUN curl -sSL https://get.docker.com/ | sh
 
-# Install the .Net Core framework, set the path, and show the version of core installed.
+# Install latest docker compose.
 RUN VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r) && \
 	DESTINATION=/usr/local/bin/docker-compose && \
 	curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION && \
