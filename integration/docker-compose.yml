@@ -5,7 +5,7 @@ services:
     # Note: "-10" means default to 10
     image: localhost:55000/gen:ci-${GENERATOR_BUILD_NUMBER-10}
     #image: localhost:55000/gen:man_ci-01
-    # build: .
+    build: .
     ports:
      - "8080:80"
   mail:
