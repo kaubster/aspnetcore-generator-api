@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2
+FROM microsoft/dotnet:2-sdk
 WORKDIR /integration
 
 COPY integration.csproj .

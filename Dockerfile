@@ -1,5 +1,5 @@
 # Build stage
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build-env
+FROM microsoft/aspnetcore-build:2 AS build-env
 
 WORKDIR /generator
 
@@ -28,7 +28,7 @@ RUN dotnet test --verbosity=normal tests/tests.csproj
 RUN dotnet publish api/api.csproj -o /publish
 
 # Runtime stage
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
+FROM microsoft/aspnetcore:2
 COPY --from=build-env /publish /publish
 WORKDIR /publish
 
