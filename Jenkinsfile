@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh 'echo "Docker Images"'
                 sh 'echo "Build: $registry/gen:ci-$BUILD_NUMBER"'
-                sh 'echo "Integration: $registry/gen:ci-$GENERATOR_BUILD_NUMBER"'
+                sh 'echo "Integration: $registry/gen:integration-$GENERATOR_BUILD_NUMBER"'
             }
         }
     	stage('SCM'){

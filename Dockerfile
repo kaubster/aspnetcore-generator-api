@@ -22,7 +22,9 @@ RUN dotnet restore tests/tests.csproj
 # copy src
 COPY . .
 
-RUN dotnet test --verbosity=normal tests/tests.csproj
+# test
+ENV TEAMCITY_PROJECT_NAME=fake
+RUN dotnet test tests/tests.csproj
 
 # publish - note: will not occur unless test passes
 RUN dotnet publish api/api.csproj -o /publish
@@ -33,11 +35,11 @@ COPY --from=build-env /publish /publish
 WORKDIR /publish
 
 # test
-ENV TEAMCITY_PROJECT_NAME=fake
+# ENV TEAMCITY_PROJECT_NAME=fake
 # ENV TEAMCITY_PROJECT_NAME=fake
 # Set the flag to tell TeamCity that these are unit tests:
 #ENV TEAMCITY_PROJECT_NAME = ${TEAMCITY_PROJECT_NAME}
 
-ENTRYPOINT ["dotnet", "test", "--verbosity=normal"]
+ENTRYPOINT ["dotnet", "api.dll"]
 
 # docker run --rm -it -p 8080:80 testing
